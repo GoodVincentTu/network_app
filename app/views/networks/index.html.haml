@@ -2,6 +2,8 @@
   %thead.thead-inverse
     %tr
       %th Name
+      %th Photo
+      %th Contact Info
       %th Slug
       %th
 
@@ -9,6 +11,8 @@
     - @networks.each do |network|
       %tr
         %td= link_to network.name, network
+        %td= image_tag network.image, width: "100" if network.image
+        %td= network.contact_info
         %td= link_to network.slug, visit_url(network.slug)
         %td
           = link_to 'Edit', edit_network_path(network)
