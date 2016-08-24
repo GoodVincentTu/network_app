@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @network.name
+%p
+  %b Image:
+  = @network.image
+%p
+  %b Current position:
+  = @network.current_position
+%p
+  %b Comment:
+  = @network.comment
+%p
+  %b Url:
+  = link_to @network.url, @network.url
+
+= link_to 'Edit', edit_network_path(@network)
+\|
+= link_to 'Back', networks_path

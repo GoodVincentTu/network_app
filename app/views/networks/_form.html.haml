@@ -1,0 +1,23 @@
+= form_for @network do |f|
+  - if @network.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@network.errors.count, "error")} prohibited this network from being saved:"
+      %ul
+        - @network.errors.full_messages.each do |msg|
+          %li= msg
+
+  %p
+    = f.label :url
+  .input-group
+    .input-group-addon= "http://"
+    = f.text_field :url, class: 'form-control'
+  %p
+    = f.label :comment
+  %p
+    = f.text_area :comment, class: 'form-control'
+  %p
+    = f.label :name
+  %p
+    = f.text_field :name, class: 'form-control'
+  %p
+    = f.submit 'Save', class: 'btn btn-default'

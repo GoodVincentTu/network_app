@@ -1,0 +1,19 @@
+%table.table
+  %thead.thead-inverse
+    %tr
+      %th Name
+      %th Slug
+      %th
+
+  %tbody
+    - @networks.each do |network|
+      %tr
+        %td= link_to network.name, network
+        %td= link_to network.slug, visit_url(network.slug)
+        %td
+          = link_to 'Edit', edit_network_path(network)
+          = link_to 'Destroy', network, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Network', new_network_path, class: "btn btn-primary"
